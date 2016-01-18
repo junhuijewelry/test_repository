@@ -11,6 +11,12 @@
     id, c_name, c_address
   </sql>
   
+  <select id="courseInfoMapper" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  		select 
+  			<include refid="Base_Column_List"></include> 
+  		from course_info
+  </select>
+  
   <insert id="insert" parameterType="com.info.entity.CourseInfo" useGeneratedKeys="true" keyProperty="id">
     insert into course_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
