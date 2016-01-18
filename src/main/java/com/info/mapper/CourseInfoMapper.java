@@ -19,5 +19,7 @@ public interface CourseInfoMapper {
      * @mbggenerated Wed Jan 13 14:59:31 CST 2016
      */
     int insertSelective(CourseInfo record);
+    
+    CourseInfo selectCourse(Integer id);
 
 }
