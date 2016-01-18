@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.mapper.CourseInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.info.entity.CourseInfo" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+    <result column="c_address" property="cAddress" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, c_name, c_address
+  </sql>
+  
+  <insert id="insert" parameterType="com.info.entity.CourseInfo" useGeneratedKeys="true" keyProperty="id">
+    insert into course_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cName != null" >
+        c_name,
+      </if>
+      <if test="cAddress != null" >
+        c_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null" >
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null" >
+        #{cAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+</mapper>
